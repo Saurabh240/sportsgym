@@ -108859,7 +108859,7 @@ function MJ_gmgt_get_user_full_display_name($user_id)
 
 
 
-		$display_name = $first_name.' '.$member_type.' '.$last_name;
+		$display_name = $last_name . " " . $first_name;
 
 
 
