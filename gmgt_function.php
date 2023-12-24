@@ -48118,10 +48118,12 @@ function MJ_gmgt_load_enddate_frontend()
 
 
 
-	$date = trim($_POST['start_date']);
+	$date = ! empty($_POST['start_date']) ? trim($_POST['start_date']) : (! empty($_POST['begin_date']) ? trim($_POST['begin_date']) : null);
 
 
-
+	if ( ! $date ) {
+		return "";
+	}
 
 
 

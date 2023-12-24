@@ -53,7 +53,8 @@ if ( ! class_exists( 'GMS_Admin_Files' ) ) {
                     } else {
                         $newmember = $primaryId . 'D1';
                     }
-
+                    $begin_date = get_user_meta( $check_id_user->ID, 'begin_date', 1 );
+                    $end_date = get_user_meta( $check_id_user->ID, 'end_date', 1 );
                     $get_membership_type = $this->get_membership_type($check_id_user->ID);
                     if (! empty($get_membership_type) && $get_membership_type[0] === "Family") {
                         wp_send_json(
@@ -63,8 +64,10 @@ if ( ! class_exists( 'GMS_Admin_Files' ) ) {
                                 'get_membership_type' => $this->get_membership_type($check_id_user->ID),
                                 'name'                => $check_id_user->data->display_name,
                                 'email'               => $check_id_user->data->user_email,
-                                'begin_date'          => get_user_meta( $check_id_user->ID, 'begin_date', 1 ),
-                                'end_date'          => get_user_meta( $check_id_user->ID, 'end_date', 1 ),
+                                'begin_date'          =>  !empty( $begin_date ) ? str_ireplace("-", "/", $begin_date) : "",
+                                'end_date'            => !empty( $end_date ) ? str_ireplace("-", "/", $end_date) : "",
+                                'staff_id'            => get_user_meta( $check_id_user->ID, 'staff_id', 1 ),
+                                'member_type'         => get_user_meta( $check_id_user->ID, 'member_type', 1 ),
                                 'new_member_id'       => $newmember
                             )
                         );

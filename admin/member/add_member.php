@@ -5461,6 +5461,18 @@ $(document).ready(function()
 							membership_id.dispatchEvent(new Event('click'));
 							membership_id.dispatchEvent(new Event('change', {bubbles:true}));
 						}
+						let staff_id = document.querySelector('#staff_id');
+						if (staff_id && data?.staff_id ) {
+							staff_id.value= data?.staff_id;
+							staff_id.dispatchEvent(new Event('click'));
+							staff_id.dispatchEvent(new Event('change', {bubbles:true}));
+						}
+						let member_type_all = document.querySelectorAll('#member_type');
+						if (member_type_all && member_type_all[1] && data?.member_type ) {
+							member_type_all[1].value= data?.member_type;
+							member_type_all[1].dispatchEvent(new Event('click'));
+							member_type_all[1].dispatchEvent(new Event('change', {bubbles:true}));
+						}
 						let begin_date = document.querySelector('#begin_date');
 						if (begin_date && data?.begin_date ) {
 							begin_date.value= data?.begin_date;

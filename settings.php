@@ -18848,7 +18848,7 @@ function MJ_gmgt_member_choice($attr)
 
 
 
-		if(isset($_REQUEST['membership_id']) && isset($_REQUEST['class_id']) && $_REQUEST['action']=='fronted_membership')
+		if(isset($_REQUEST['membership_id']) && isset($_REQUEST['class_id']) && !empty($_REQUEST['action'])=='fronted_membership')
 
 
 
@@ -27502,6 +27502,8 @@ function MJ_gmgt_member_registration_function()
 
 
 
+try {
+	//code...
 
 
 
@@ -28746,7 +28748,11 @@ function MJ_gmgt_member_registration_function()
 
 
 
-
+} catch (\Throwable $th) {
+	
+	var_dump($th);
+	die;
+}
 
 
 	 }
@@ -28757,7 +28763,8 @@ function MJ_gmgt_member_registration_function()
 
 
 
-	MJ_gmgt_registration_form(
+	
+	 MJ_gmgt_registration_form(
 
 
 
@@ -29626,7 +29633,7 @@ function MJ_gmgt_complete_registration($class_name,$first_name,$member_type,$las
 
 				$membership_name=MJ_gmgt_get_membership_name($membership_id);
 
-				$url = site_url() . "/customer-details/?accountant_id=" . $user_id;
+				$url = site_url() . "/customer-details/?accountant_id=" . $user_info->ID;
 
 				$url = "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=".urlencode( $url)."&choe=UTF-8";
 
@@ -31228,7 +31235,7 @@ function MJ_gmgt_complete_registration($class_name,$first_name,$member_type,$las
 
 
 
-					$couponusage_data['discount_type'] = $coupon_data->discount_type;
+					$couponusage_data['discount_type'] = !empty( $coupon_data->discount_type ) ? $coupon_data->discount_type : "amount";
 
 
 

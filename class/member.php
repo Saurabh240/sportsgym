@@ -477,6 +477,19 @@ class MJ_gmgt_member
 
 			if(!empty($_POST['relation'])){
 				update_user_Meta($user_id, 'relation', $_POST['relation'] );
+				if ( !empty($_POST['check_id_user'])  ) {
+					$check_id_user = $_POST['check_id_user'];
+					$getId = get_user_meta( $check_id_user, 'total_dependent',1);
+					$primaryId =$_POST['primary_id'];
+					if ( $getId) {
+						$getId = (int)$getId + 1;
+						$newmember = $primaryId .'D'. $getId;
+					} else {
+						$getId = 1;
+						$newmember = $primaryId . 'D1';
+					}
+					update_user_Meta( $check_id_user, 'total_dependent', $getId );
+				}
 			}
 
 			// ==============Audit log END=============
@@ -516,6 +529,19 @@ class MJ_gmgt_member
 				
 				if ( ! empty( $_POST['relation'] ) ) {
 				update_user_Meta( $user_id, 'relation', $_POST['relation'] );
+				if ( !empty($_POST['check_id_user'])  ) {
+					$check_id_user = $_POST['check_id_user'];
+					$getId = get_user_meta( $check_id_user, 'total_dependent',1);
+					$primaryId =$_POST['primary_id'];
+					if ( $getId) {
+						$getId = (int)$getId + 1;
+						$newmember = $primaryId .'D'. $getId;
+					} else {
+						$getId = 1;
+						$newmember = $primaryId . 'D1';
+					}
+					update_user_Meta( $check_id_user, 'total_dependent', $getId );
+				}
 				}
 
 
@@ -831,6 +857,19 @@ class MJ_gmgt_member
 
 			if ( ! empty( $_POST['relation'] ) ) {
 				update_user_Meta( $user_id, 'relation', $_POST['relation'] );
+				if ( !empty($_POST['check_id_user'])  ) {
+					$check_id_user = $_POST['check_id_user'];
+					$getId = get_user_meta( $check_id_user, 'total_dependent',1);
+					$primaryId =$_POST['primary_id'];
+					if ( $getId) {
+						$getId = (int)$getId + 1;
+						$newmember = $primaryId .'D'. $getId;
+					} else {
+						$getId = 1;
+						$newmember = $primaryId . 'D1';
+					}
+					update_user_Meta( $check_id_user, 'total_dependent', $getId );
+				}
 			}
 
 
