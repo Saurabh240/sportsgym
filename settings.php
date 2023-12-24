@@ -23892,7 +23892,7 @@ function MJ_gmgt_registration_form( $class_name,$first_name,$member_type,$last_n
 
 
 
-							<div class="card-body_1">
+							<div class="card-body_1"  id="membership-info-div">
 
 
 
@@ -26636,11 +26636,14 @@ function MJ_gmgt_registration_form( $class_name,$first_name,$member_type,$last_n
 				function toggleDependentFields() {
 					var memberType = document.getElementById("member_type").value;
 					var dependentFields = document.getElementById("dependentFields");
+					let membershipInfoDiv= document.getElementById("membership-info-div");
 
 					if (memberType === "Dependent") {
 					dependentFields.style.display = "none";
+					membershipInfoDiv.style.pointerEvents= "none";
 					} else {
 					dependentFields.style.display = "block";
+					membershipInfoDiv.style.pointerEvents= "all";
 					}
 				}
 			</script>

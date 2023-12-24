@@ -3250,9 +3250,8 @@ $('.dropdown-toggle').dropdown();
 			$.post(gmgt.ajax, curr_data, function(response) 
 			{
 				var payment_data = $.parseJSON(response);		
-				$("#begin_date").val('');
-				$("#end_date").val('');
-				$("#end_date").val('');
+				// $("#begin_date").val('');
+				// $("#end_date").val('');
 				$("#total_amount").val(payment_data.price);
 				
 				//For Renew Memberhsip Plan for member//

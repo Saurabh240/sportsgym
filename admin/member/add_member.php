@@ -1003,7 +1003,7 @@ if($active_tab == 'addmember')
 								}
 								?>
 								<label class="" for="member_type"><?php esc_html_e('Member Type','gym_mgt');?></label>
-								<select id="member_type" class="form-control validate[custom[onlyLetter_specialcharacter] " name="member_type" onchange="toggleDependentFields()">
+								<select id="member_type" class="form-control validate[custom[onlyLetter_specialcharacter] " name="member_type">
 								<option value="Select">Select Member Type</option>	
 								<option value="Primary" <?php echo $selected_member_type === "Primary" ? "selected": ""; ?>">Primary</option>
 								<option value="Dependent" <?php echo $selected_member_type === "Dependent" ? "selected": ""; ?>">Dependent</option>
@@ -1207,7 +1207,7 @@ if($active_tab == 'addmember')
 
 			</div>
 
-			<div class="form-body user_form"> <!-- user_form Strat-->
+			<div class="form-body user_form" id="membership-info-div"> <!-- user_form Strat-->
 
 				<div class="row"><!--Row Div Strat--> 
 
@@ -5478,6 +5478,7 @@ $(document).ready(function()
 		let primary_id_div = document.querySelector('#primary_id_div');
 		member_type.addEventListener('change', (e) => {
 			let member_id = document.querySelector('#member_id');
+			toggleDependentFields(); 
 			if ( e.target.value === "Dependent") {
 				member_id.value = member_id.value + "D1";
 				primary_id_div.innerHTML = `<br/><span class="" for="primary_id">Enter Primary Id<span class="require-field">*</span></span><input id="primary_id" class="form-control text-input" maxlength="50" type="text" value="" name="primary_id"><br/><a href="javascript:void(0);" class="btn save_btn" style="margin-top:5px; display:inline-block;" id="check_primary_id">Check</a> <br/><br/> 
@@ -5507,11 +5508,14 @@ $(document).ready(function()
 	function toggleDependentFields() {
 		var memberType = document.getElementById("member_type").value;
 		var dependentFields = document.getElementById("dependentFields");
+		let membershipInfoDiv= document.getElementById("membership-info-div");
 
 		if (memberType === "Dependent") {
 		dependentFields.style.display = "none";
+		membershipInfoDiv.style.pointerEvents= "none";
 		} else {
 		dependentFields.style.display = "block";
+		membershipInfoDiv.style.pointerEvents= "all";
 		}
 	}
 	var date = new Date();
