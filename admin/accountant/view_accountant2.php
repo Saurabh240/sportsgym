@@ -16,7 +16,9 @@ $accountant_id=0;
 
 $edit=0;	
 
-$dependent_member = null;
+$dependent_member = [];
+
+$is_user_logged_in = is_user_logged_in();
 
 if(isset($_REQUEST['accountant_id']) )
 
@@ -131,12 +133,12 @@ if(isset($_REQUEST['accountant_id']) )
     <div class="member-info">
         <h1><?php echo chunk_split(esc_html($user_info->first_name),32,"<BR>");?></h1>
 		<p><strong>RANK :</strong> <?php echo chunk_split(esc_html($user_info->last_name),32,"<BR>");?></p>
-		<p><strong>EMAIL-ID : </strong><?php echo chunk_split(esc_html($user_info->user_email),32,"<BR>");?></p>
-        <p><strong>MEMBERSHIP ID:</strong> <?php echo chunk_split(esc_html($user_info->member_id),32,"<BR>");?> </p>
+		<p><strong>EMAIL-ID : </strong><?php echo $is_user_logged_in  ? chunk_split(esc_html($user_info->user_email),32,"<BR>") : "*******";?></p>
+        <p><strong>MEMBERSHIP ID:</strong> <?php echo $is_user_logged_in ? chunk_split(esc_html($user_info->member_id),32,"<BR>") : "SVC00***";?> </p>
         <p><strong>MEMBERSHIP TYPE:</strong> <?php echo MJ_gmgt_get_membership_name(esc_html($user_info->membership_id));?></p>
-        <p><strong>MOBILE NO:</strong><?php echo esc_html($user_info->mobile);?></p>
-        <p><strong>ADDRESS:</strong> <?php if($user_info->address != '') {															echo chunk_split(esc_html($user_info->address)); }  ?></p>
-        <p><strong>NO OF DEPENDENTS:</strong> <?php echo get_user_meta( $user_info->ID, 'total_dependent', true ); ?></p>
+        <p><strong>MOBILE NO:</strong><?php echo $is_user_logged_in ? esc_html($user_info->mobile) : "**********";?></p>
+        <p><strong>ADDRESS:</strong> <?php if($user_info->address != '') {															echo $is_user_logged_in ? chunk_split(esc_html($user_info->address)) : "******"; }  ?></p>
+        <p><strong>NO OF DEPENDENTS:</strong> <?php echo ! empty($dependent_member) && is_array($dependent_member) ? count($dependent_member): 0; ?></p>
         <p><strong>JOINING DATE:</strong> <?php echo chunk_split(esc_html($user_info->begin_date),32,"<BR>");?></p>
         <p><strong>MEMBERSHIP STATUS:</strong> <?php echo chunk_split(esc_html($user_info->membership_status),32,"<BR>");?></p>
     </div>
