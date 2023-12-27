@@ -134,7 +134,7 @@ if(isset($_REQUEST['accountant_id']) )
         <h1><?php echo chunk_split(esc_html($user_info->first_name),32,"<BR>");?></h1>
 		<p><strong>RANK :</strong> <?php echo chunk_split(esc_html($user_info->last_name),32,"<BR>");?></p>
 		<p><strong>EMAIL-ID : </strong><?php echo $is_user_logged_in  ? chunk_split(esc_html($user_info->user_email),32,"<BR>") : "*******";?></p>
-        <p><strong>MEMBERSHIP ID:</strong> <?php echo $is_user_logged_in ? chunk_split(esc_html($user_info->member_id),32,"<BR>") : "SVC00***";?> </p>
+        <p><strong>MEMBERSHIP ID:</strong> <?php echo chunk_split(esc_html($user_info->member_id),32,"<BR>");?> </p>
         <p><strong>MEMBERSHIP TYPE:</strong> <?php echo MJ_gmgt_get_membership_name(esc_html($user_info->membership_id));?></p>
         <p><strong>MOBILE NO:</strong><?php echo $is_user_logged_in ? esc_html($user_info->mobile) : "**********";?></p>
         <p><strong>ADDRESS:</strong> <?php if($user_info->address != '') {															echo $is_user_logged_in ? chunk_split(esc_html($user_info->address)) : "******"; }  ?></p>
