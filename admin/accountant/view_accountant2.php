@@ -124,7 +124,7 @@ if(isset($_REQUEST['accountant_id']) )
 
 <div class="member-details-container">
     <!-- First Section for Primary Member -->
-    <h1 style="text-align: center;">Primary Member</h1>
+    <h1 style="text-align: center;"> Member Details</h1>
     <div class="profile-picture">
         <!-- <?php if($user_info->gmgt_user_avatar == "") { ?><img class="user_view_profile_image" alt="" src="<?php echo get_option('gmgt_Account_logo' ); ?>"> <?php } else { ?> <img class="user_view_profile_image" src="<?php if($edit)echo esc_url( $user_info->gmgt_user_avatar ); ?>" /> <?php }?> -->
         <img class="user_view_profile_image" alt="" src="<?php echo esc_url( $user_info->gmgt_user_avatar ); ?>" >
@@ -134,7 +134,7 @@ if(isset($_REQUEST['accountant_id']) )
         <h1><?php echo chunk_split(esc_html($user_info->first_name),32,"<BR>");?></h1>
 		<p><strong>RANK :</strong> <?php echo chunk_split(esc_html($user_info->last_name),32,"<BR>");?></p>
 		<p><strong>EMAIL-ID : </strong><?php echo $is_user_logged_in  ? chunk_split(esc_html($user_info->user_email),32,"<BR>") : "*******";?></p>
-        <p><strong>MEMBERSHIP ID:</strong> <?php echo chunk_split(esc_html($user_info->member_id),32,"<BR>");?> </p>
+        <p><strong>MEMBER ID:</strong> <?php echo chunk_split(esc_html($user_info->member_id),32,"<BR>");?> </p>
         <p><strong>MEMBERSHIP TYPE:</strong> <?php echo MJ_gmgt_get_membership_name(esc_html($user_info->membership_id));?></p>
         <p><strong>MOBILE NO:</strong><?php echo $is_user_logged_in ? esc_html($user_info->mobile) : "**********";?></p>
         <p><strong>ADDRESS:</strong> <?php if($user_info->address != '') {															echo $is_user_logged_in ? chunk_split(esc_html($user_info->address)) : "******"; }  ?></p>
