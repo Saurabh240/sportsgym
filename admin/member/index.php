@@ -576,7 +576,7 @@ if(isset($_REQUEST['action']) && $_REQUEST['action'] =='approve')
 
 
 
-		wp_redirect ( admin_url().'admin.php?page=gmgt_member&tab=memberlist&message=4');
+		wp_redirect ( admin_url().'admin.php?page=gmgt_member&tab=addmember&message=4');
 
 
 
@@ -593,7 +593,7 @@ if(isset($_REQUEST['extend_membership']))
 	
 	if($result){
 		
-		wp_redirect ( admin_url().'admin.php?page=gmgt_member&tab=memberlist&message=15');
+		wp_redirect ( admin_url().'admin.php?page=gmgt_member&tab=addmember&message=15');
 
 	}
 }
@@ -1127,7 +1127,7 @@ if(isset($_REQUEST['upload_csv_file']))
 
 
 
-			wp_redirect ( admin_url().'admin.php?page=gmgt_member&tab=memberlist&message=10');
+			wp_redirect ( admin_url().'admin.php?page=gmgt_member&tab=addmember&message=10');
 
 
 
@@ -1147,7 +1147,7 @@ if(isset($_REQUEST['upload_csv_file']))
 
 
 
-			wp_redirect ( admin_url().'admin.php?page=gmgt_member&tab=memberlist&message=11');
+			wp_redirect ( admin_url().'admin.php?page=gmgt_member&tab=addmember&message=11');
 
 
 
@@ -1506,7 +1506,7 @@ if(isset($_REQUEST['upload_csv_file']))
 
 
 
-					wp_redirect ( admin_url().'admin.php?page=gmgt_member&tab=memberlist&message=12');						
+					wp_redirect ( admin_url().'admin.php?page=gmgt_member&tab=addmember&message=12');						
 
 
 
@@ -1546,7 +1546,7 @@ if(isset($_REQUEST['upload_csv_file']))
 
 
 
-		   wp_redirect ( admin_url().'admin.php?page=gmgt_member&tab=memberlist&message=13');
+		   wp_redirect ( admin_url().'admin.php?page=gmgt_member&tab=addmember&message=13');
 
 
 
@@ -2522,7 +2522,7 @@ else
 
 
 
-									wp_redirect ( admin_url().'admin.php?page=gmgt_member&tab=memberlist&message=2');
+									wp_redirect ( admin_url().'admin.php?page=gmgt_member&tab=addmember&message=2');
 
 
 
@@ -2610,7 +2610,7 @@ else
 
 
 
-										wp_redirect ( admin_url().'admin.php?page=gmgt_member&tab=memberlist&message=2');
+										wp_redirect ( admin_url().'admin.php?page=gmgt_member&tab=addmember&message=2');
 
 
 
@@ -2750,7 +2750,7 @@ else
 
 									$wizard = MJ_gmgt_setup_wizard_steps_updates('step6_member');
 
-									wp_redirect ( admin_url() . 'admin.php?page=gmgt_member&tab=memberlist&message=1');
+									wp_redirect ( admin_url() . 'admin.php?page=gmgt_member&tab=addmember&message=1');
 
 
 
@@ -2874,7 +2874,7 @@ else
 
 
 
-					wp_redirect ( admin_url().'admin.php?page=gmgt_member&tab=memberlist&message=3');
+					wp_redirect ( admin_url().'admin.php?page=gmgt_member&tab=addmember&message=3');
 
 
 
@@ -2930,7 +2930,7 @@ else
 
 
 
-						wp_redirect ( admin_url().'admin.php?page=gmgt_member&tab=memberlist&message=3');
+						wp_redirect ( admin_url().'admin.php?page=gmgt_member&tab=addmember&message=3');
 
 
 
@@ -5006,7 +5006,7 @@ else
 
 
 
-																						<a href="?page=gmgt_member&tab=memberlist&action=delete&member_id=<?php echo esc_attr($retrieved_data->ID);?>" class="float_left_width_100 list_delete_btn" onclick="return confirm('<?php esc_html_e('Are you sure you want to delete this record?','gym_mgt');?>');"><i class="fa fa-trash"></i><?php esc_html_e( 'Delete', 'gym_mgt' ) ;?></a>
+																						<a href="?page=gmgt_member&tab=addmember&action=delete&member_id=<?php echo esc_attr($retrieved_data->ID);?>" class="float_left_width_100 list_delete_btn" onclick="return confirm('<?php esc_html_e('Are you sure you want to delete this record?','gym_mgt');?>');"><i class="fa fa-trash"></i><?php esc_html_e( 'Delete', 'gym_mgt' ) ;?></a>
 
 
 
