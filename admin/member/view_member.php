@@ -2213,13 +2213,13 @@ if(isset($_REQUEST['action']) && $_REQUEST['action'] == 'view')
 
 											<?php
 											$user_id = !empty( $_GET['member_id'] )? $_GET['member_id']: (!empty( $_GET['accountant_id'] )? $_GET['accountant_id']: "");
-											$url = site_url() . "/customer-details/?accountant_id=" . $user_id;
+											$customer_url = site_url() . "/customer-details/?accountant_id=" . $user_id;
 
-											$url = "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=".urlencode( $url)."&choe=UTF-8";
+											$url = "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=".urlencode( $customer_url)."&choe=UTF-8";
 											?>
 
-											<img class="" id='barcode' src="<?php echo $url; ?>" style="max-width:100%;">
-
+											<!-- <img class="" id='barcode' src="<?php echo $url; ?>" style="max-width:100%;"> -->
+											<div id="gym-barcode" data-url="<?php echo $customer_url; ?>" style="display: flex; align-items: center;justify-content: center; "></div>
 
 
 										</div>
@@ -2419,7 +2419,6 @@ if(isset($_REQUEST['action']) && $_REQUEST['action'] == 'view')
 
 
 								$('.dataTables_filter').addClass('search_btn_view_page');
-
 
 
 							} );

@@ -110,11 +110,13 @@ $groupdata=$obj_group->MJ_gmgt_get_all_groups($_REQUEST['member_id']);
 
 			var url = <?php echo site_url() . "/customer-details/?accountant_id=" . $_REQUEST['member_id'];?>;
 
-			url = "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=" + encodeURIComponent( url) + "&choe=UTF-8";
+			// url = "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=" + encodeURIComponent( url) + "&choe=UTF-8";
 
 
-		$('#barcode').attr('src', url);
-
+		// $('#barcode').attr('src', url);
+		var qrcode = new QRCode(document.getElementById("gym-barcode"), {
+			text: url,
+		});
 
 
 	} );
@@ -2095,11 +2097,13 @@ $groupdata=$obj_group->MJ_gmgt_get_all_groups($_REQUEST['member_id']);
 							
 							var url = <?php echo site_url() . "/customer-details/?accountant_id=" . $_REQUEST['member_id'];?>;
 
-							url = "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=" + encodeURIComponent( url) + "&choe=UTF-8";
+							// url = "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=" + encodeURIComponent( url) + "&choe=UTF-8";
 
 
-							$('#barcode').attr('src', url);
-
+							// $('#barcode').attr('src', url);
+							var qrcode = new QRCode(document.getElementById("gym-barcode"), {
+								text: url,
+							});
 
 
 						});
@@ -2146,7 +2150,7 @@ $groupdata=$obj_group->MJ_gmgt_get_all_groups($_REQUEST['member_id']);
 
 
 
-											<img class="" id='barcode' src=''>
+											<div class="" id='gym-barcode' src=''>
 
 
 

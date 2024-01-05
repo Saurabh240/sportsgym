@@ -11824,9 +11824,9 @@ function MJ_gmgt_login_link_for_plugin_theme()
 
 				// $url = 'https://api.qrserver.com/v1/create-qr-code/?data=' . $qr_code_urlnew . '&amp;size=50x50';
 				$user_id = !empty( $_GET['id'] )? $_GET['id']: "";
-				$url = site_url() . "/customer-details/?accountant_id=" . $user_id;
+				$customer_url = site_url() . "/customer-details/?accountant_id=" . $user_id;
 
-				$url = "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=".urlencode( $url)."&choe=UTF-8";
+				$url = "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=".urlencode( $customer_url)."&choe=UTF-8";
 
 
 		?>
@@ -11836,8 +11836,8 @@ function MJ_gmgt_login_link_for_plugin_theme()
 	
 				<p style="font-size: 17px; float:left;"><?php esc_html_e("Your registration is completed.You can access system using your Email ID and password.",'gym_mgt');?>
 				</p>
-				<img src="<?php echo $url; ?>" height="200" width="200" style="margin: auto; display:block;" alt="barcode"/>
-
+				<!-- <img src="<?php echo $url; ?>" height="200" width="200" style="margin: auto; display:block;" alt="barcode"/> -->
+				<div id="gym-barcode" style="margin: auto; display:block;"  data-url="<?php echo $customer_url; ?>"></div>
 			</div>
 
 
@@ -83355,6 +83355,7 @@ wp_enqueue_style( 'bootstrap_min-css', plugins_url( '/assets/css/bootstrap_min.c
 
 
 wp_enqueue_script('bootstrap_min-js', plugins_url( '/assets/js/bootstrap_min.js', __FILE__ ) );
+
 
 
 

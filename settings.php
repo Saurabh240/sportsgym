@@ -10734,7 +10734,7 @@ function MJ_gmgt_change_adminbar_css($hook)
 
 		wp_register_script( 'MJ_gmgt_jquery-3-6-0', plugins_url( '/assets/js/jquery-3-6-0.js', __FILE__), array( 'jquery' ) );
 
-
+wp_enqueue_script('qrcode_min-js', plugins_url( '/assets/js/qrcoqrcode.min.js', __FILE__ ) );
 
 
 
@@ -12138,6 +12138,7 @@ function MJ_gmgt_load_script1()
 {
 
 
+	wp_enqueue_script('qrcode_min-js', plugins_url( '/assets/js/qrcoqrcode.min.js', __FILE__ ) );
 
 	if(isset($_REQUEST['dashboard']) && $_REQUEST['dashboard'] == 'user')
 
