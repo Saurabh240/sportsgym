@@ -425,7 +425,7 @@
 
 			?>
 
-				minDate:'today',
+				// minDate:'today',
 
 				startDate: date,
 
